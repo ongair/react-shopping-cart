@@ -63,7 +63,7 @@ class FloatCart extends Component {
     }
 
     updateCart(cartProducts);
-    this.openFloatCart();
+    // this.openFloatCart();
   };
 
   removeProduct = product => {
@@ -122,6 +122,33 @@ class FloatCart extends Component {
       classes.push('float-cart--open');
     }
 
+    let linkText = 'New Order\r\n---------------\r\n'
+
+
+    let productStrArr = cartProducts.map(p => {
+      return [
+        `${p.quantity} x ${p.title}`
+      ]
+    })
+
+
+
+    if (productStrArr.length > 0) {
+      linkText += productStrArr.join('\r\n')
+    }
+
+    let totalOwed = formatPrice(
+      ((cartTotal.delivery + cartTotal.totalPrice) * 1.16),
+      cartTotal.currencyId
+    )
+
+    linkText += '\r\n--------------------\r\n\r\n'
+    linkText += `*Total amount*: ${cartTotal.currencyFormat} ${totalOwed}`
+
+    // https://api.whatsapp.com/send?phone=254782224675&text=New%20order%20(East+Matt)%0A%0A4%20x%20Hanan%208pk%20Tissue%0A1%20x%20Soko%20Maize%20Meal%0A%0APayable:%20KES%201794.52%0A%0ADeliver%20to%0ATrevor%20Kimenye,Kileleshwa%0A%0APlease%20confirm%20via%20reply.%0A%0A-----------------------------%0A(Message%20for%20Customer)%0A%0AClick%20to%20pay%20using%20PayPal%0Ahttps://paypal.me/demoID/1794.52%0APlease%20share%20the%20payment%20screenshot%20here.
+    // console.log('Link Text', linkText)
+    let whatsAppUrl = 'https://api.whatsapp.com/send?phone=254782224675&text=' + encodeURI(linkText)
+
     return (
       <div className={classes.join(' ')}>
         {/* If cart open, show close (x) button */}
@@ -156,8 +183,7 @@ class FloatCart extends Component {
             {products}
             {!products.length && (
               <p className="shelf-empty">
-                Add some products in the cart <br />
-                :)
+                Add some items to your order
               </p>
             )}
           </div>
@@ -205,9 +231,9 @@ class FloatCart extends Component {
                 }
               </p>
             </div>
-            <div onClick={() => this.proceedToCheckout()} className="buy-btn">
+            <a href={ whatsAppUrl } className="buy-btn">
               Click to WhatsApp
-            </div>
+            </a>
           </div>
         </div>
       </div>

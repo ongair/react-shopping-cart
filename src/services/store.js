@@ -3,8 +3,8 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 
 export default initialState => {
-  initialState =
-    JSON.parse(window.localStorage.getItem('state')) || initialState;
+  // initialState =
+  //   JSON.parse(window.localStorage.getItem('state')) || initialState;
 
   const middleware = [thunk];
 
