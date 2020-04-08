@@ -5,6 +5,7 @@ import rootReducer from './reducers';
 export default initialState => {
   initialState =
     JSON.parse(window.localStorage.getItem('state')) || initialState;
+
   const middleware = [thunk];
 
   const store = createStore(
@@ -21,7 +22,8 @@ export default initialState => {
     const state = store.getState();
     const persist = {
       cart: state.cart,
-      total: state.total
+      total: state.total,
+      delivery: state.delivery
     };
 
     window.localStorage.setItem('state', JSON.stringify(persist));

@@ -56,7 +56,7 @@ class Shelf extends Component {
       <React.Fragment>
         {isLoading && <Spinner />}
         <div className="shelf-container">
-          <ShelfHeader productsLength={products.length} />
+          {/*<ShelfHeader productsLength={products.length} />*/}
           <ProductList products={products} />
         </div>
       </React.Fragment>

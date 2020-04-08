@@ -163,29 +163,50 @@ class FloatCart extends Component {
           </div>
 
           <div className="float-cart__footer">
-            <div className="sub">SUBTOTAL</div>
+            <div className="sub">Subtotal</div>
             <div className="sub-price">
               <p className="sub-price__val">
-                {`${cartTotal.currencyFormat} ${formatPrice(
-                  cartTotal.totalPrice,
-                  cartTotal.currencyId
-                )}`}
+                <span className="sub_cur">
+                  { cartTotal.currencyFormat } &nbsp;
+                </span>
+                {
+                  formatPrice(
+                    cartTotal.totalPrice,
+                    cartTotal.currencyId
+                  )
+                }
               </p>
-              <small className="sub-price__installment">
-                {!!cartTotal.installments && (
-                  <span>
-                    {`OR UP TO ${cartTotal.installments} x ${
-                      cartTotal.currencyFormat
-                    } ${formatPrice(
-                      cartTotal.totalPrice / cartTotal.installments,
-                      cartTotal.currencyId
-                    )}`}
-                  </span>
-                )}
-              </small>
+            </div>
+            <div className='sub'>Delivery Fee</div>
+            <div className="sub-price">
+              <p className="sub-price__val">
+                <span className="sub_cur">
+                  { cartTotal.currencyFormat } &nbsp;
+                </span>
+                {
+                  formatPrice(
+                    cartTotal.delivery,
+                    cartTotal.currencyId
+                  )
+                }
+              </p>
+            </div>
+            <div className='sub final'>Total (incl tax)</div>
+            <div className="sub-price">
+              <p className="sub-price__val final">
+                <span className="sub_cur">
+                  { cartTotal.currencyFormat } &nbsp;
+                </span>
+                {
+                  formatPrice(
+                    ((cartTotal.delivery + cartTotal.totalPrice) * 1.16),
+                    cartTotal.currencyId
+                  )
+                }
+              </p>
             </div>
             <div onClick={() => this.proceedToCheckout()} className="buy-btn">
-              Checkout
+              Click to WhatsApp
             </div>
           </div>
         </div>

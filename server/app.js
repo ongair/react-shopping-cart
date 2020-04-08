@@ -9,7 +9,8 @@ app.use(cors());
 const port = 8001;
 
 app.get('/api/products', (req, res) => {
-  res.sendFile(path.join(__dirname, 'data', 'products.json'));
+  // res.sendFile(path.join(__dirname, 'data', 'products.json'));
+  res.sendFile(path.join(__dirname, 'data', 'skus.json'))
 });
 
 app.listen(port, () => {

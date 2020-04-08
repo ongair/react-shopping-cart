@@ -16,12 +16,15 @@ export const updateCart = cartProducts => dispatch => {
     return greater;
   }, 0);
 
+  let delivery = productQuantity > 0 ? 250 : 0;
+
   let cartTotal = {
     productQuantity,
     installments,
+    delivery,
     totalPrice,
-    currencyId: 'USD',
-    currencyFormat: '$'
+    currencyId: 'KES',
+    currencyFormat: 'KES'
   };
 
   dispatch({

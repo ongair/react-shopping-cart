@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "sku": 1355026183,
+      "title": "Colgate Toothpaste",
+      "description": "100ml",
+      "availableSizes": ["S", "XS"],
+      "category": "",
+      "style": "Black with custom print",
+      "price": 200,
+      "installments": 9,
+      "currencyId": "KES",
+      "currencyFormat": "KES",
+      "isFreeShipping": true
+    },
+    {
+      "id": 2,
+      "sku": 1355127930,
+      "title": "Mac Coffee Classic",
+      "description": "500gm",
+      "availableSizes": ["S", "XS"],
+      "style": "Black with custom print",
+      "price": 225,
+      "installments": 9,
+      "currencyId": "KES",
+      "currencyFormat": "KES",
+      "isFreeShipping": true
+    },
+    {
+      "id": 3,
+      "sku": 1355739312,
+      "title": "Harpic Toilet Cleaner",
+      "description": "250ml",
+      "availableSizes": ["S", "XS"],
+      "style": "Black with custom print",
+      "price": 345,
+      "installments": 9,
+      "currencyId": "KES",
+      "currencyFormat": "KES",
+      "isFreeShipping": true
+    }
+  ]
+}
